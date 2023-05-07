@@ -1,0 +1,72 @@
+﻿@*@page*@
+@model IEnumerable<MvcChallenge.Models.Empleado>
+
+@*MvcChallenge.Views.Empleado.IndexModel*@
+
+@{
+}
+
+
+<h1>Empleados</h1>
+
+<p>
+    <a asp-action="Create"><input type="submit" value="Agregar nuevo empleado" class="btn btn-primary" /></> </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salario)
+            </th>
+            <th>
+                Editar|Ver|Borrar
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        
+
+
+
+       @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Departamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salario)
+                </td>
+                <td>
+                    
+                    <a asp-action="Edit" asp-route-id="@item.Id"> <input type="submit" value="Editar" class="btn btn-primary" /></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><input type="submit" value="Detalle" class="btn btn-primary" /></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><input type="submit" value="Borrar" class="btn btn-primary" /></a> 
+                    @*<a asp-action="Delete" asp-route-id="@item.Id">Borrar</a>*@
+                </td>
+            </tr>
+        }
+        
+    </tbody>
+</table>

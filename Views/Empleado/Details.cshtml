@@ -1,0 +1,44 @@
+﻿@model MvcChallenge.Models.Empleado
+
+<div>
+    <h4>Detalle del Empleado @Html.DisplayFor(model => model.Nombre)</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Edad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Departamento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Departamento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Salario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Salario)
+        </dd>
+    </dl>
+</div>
+<div>
+   @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) | *@ 
+    <a asp-action="Edit">Editar los Datos de @Html.DisplayFor(model => model.Nombre) </a>
+    |
+    <a asp-action="Index">Regresar a la lista de empleados</a>
+</div>
