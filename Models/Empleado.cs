@@ -9,6 +9,7 @@ using System;
 //using MvcMovie.Models;
 
 
+
 namespace MvcChallenge.Models
 
 {
@@ -23,10 +24,12 @@ namespace MvcChallenge.Models
 
     }
 
+    // clase debe estar separada
     public class EmpDBContext : DbContext
     {
         public EmpDBContext() { }
         public DbSet<Empleado> Empleado { get; set; }
+        public DbSet<cliente> Clientes { get; set; }
     }
 
 }

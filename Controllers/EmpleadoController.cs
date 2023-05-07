@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Data.Entity.Migrations;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using MvcChallenge.Data;
 
 namespace MvcChallenge.Controllers
 {
@@ -23,8 +24,8 @@ namespace MvcChallenge.Controllers
         
         public ActionResult Index()
         {
-            var Empleados= from a in db.Empleado orderby a.Id select a;
-
+           // var Empleados= from a in db.Empleado orderby a.Id select a;
+            var Empleados = db.Empleado;
             return View(Empleados);
         }
         
