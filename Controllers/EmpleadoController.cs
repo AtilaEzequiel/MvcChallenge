@@ -67,17 +67,26 @@ namespace MvcChallenge.Controllers
 
         public async Task<IActionResult> DeleteConfirmed(int id) 
         {
-            if (id!=null)
-            {
-                var empleados1 = db.Empleado.Single(a => a.Id == id);
-                db.Empleado.Remove(empleados1);
-                //db.SaveChanges();
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-                
-            }
-            return View("Index");
+            
 
+            try
+            {
+                if (id != null)
+                {
+                    var empleados1 = db.Empleado.Single(a => a.Id == id);
+                    db.Empleado.Remove(empleados1);
+                    //db.SaveChanges();
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+
+                }
+                return View("Index");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             // return View();
         }
 
@@ -93,8 +102,8 @@ namespace MvcChallenge.Controllers
                  }
                  catch 
                  {
-
-                     return View();
+                     string mensaje = "Error al crear el empleado";
+                     return View(mensaje);
                  }
 
              }
@@ -106,10 +115,20 @@ namespace MvcChallenge.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit( Empleado emp)
         {
-            db.Empleado.AddOrUpdate(emp);
-            await db.SaveChangesAsync();
+            
 
-            return RedirectToAction("Index");
+            try
+            {
+                db.Empleado.AddOrUpdate(emp);
+                await db.SaveChangesAsync();
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 

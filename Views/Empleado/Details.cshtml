@@ -37,8 +37,8 @@
     </dl>
 </div>
 <div>
-   @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) | *@ 
-    <a asp-action="Edit">Editar los Datos de @Html.DisplayFor(model => model.Nombre) </a>
+   @*@Html.ActionLink("Edit", "Edit",new {  id = Model.Id  }) | *@
+    <a asp-action="Edit" asp-route-id="@Model.Id">Editar los Datos de @Html.DisplayFor(model => model.Nombre) </a>
     |
     <a asp-action="Index">Regresar a la lista de empleados</a>
 </div>
